@@ -6,10 +6,6 @@ friendliness of using foundations to own international operating companies. The
 interface is rendered from flat JSON files, so you can host it on any standard
 PHP-capable server without databases or background services.
 
-> **Live deployment:** Explore the production instance at
-> [https://tax.ydepi.com/](https://tax.ydepi.com/) to see the dashboard in
-> action before self-hosting it.
-
 ## Key capabilities
 
 - **Adaptive overview** – Gradient hero cards highlight the lowest corporate tax
@@ -60,9 +56,8 @@ Need a portable bundle? Create it locally with:
 zip -r codextest.zip assets data index.php README.md scripts .gitignore
 ```
 
-That archive mirrors the flat-file layout that powers the dashboard. The hosted
-instance at [tax.ydepi.com](https://tax.ydepi.com/) also exposes this bundle at
-`https://tax.ydepi.com/codextest.zip` for direct download.
+That archive mirrors the flat-file layout that powers the dashboard so you can
+transfer or deploy it wherever you need without additional build tooling.
 
 No additional build step is required. Updating the JSON data instantly refreshes
 all sections on reload.
@@ -125,9 +120,3 @@ to cover every jurisdiction globally.
 > and practitioner experience. Always confirm the latest rules with a local
 > advisor before acting.
 
-## About this repository
-
-The codextest project delivers the same flat-file PHP experience that powers
-the hosted deployment at [tax.ydepi.com](https://tax.ydepi.com/). Clone the
-repository if you want to customise data or styling, or rely on the live site
-for an always-up-to-date view of the worldwide corporate tax landscape.
