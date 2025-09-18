@@ -36,6 +36,307 @@ function load_jurisdictions(): array
 }
 
 /**
+ * Fetch the dataset update token from the environment when configured.
+ */
+function dataset_update_token(): ?string
+{
+    $token = getenv('DATASET_UPDATE_TOKEN');
+    if (is_string($token) && $token !== '') {
+        return $token;
+    }
+
+    return null;
+}
+
+/**
+ * Determine whether in-browser dataset updates are permitted.
+ */
+function dataset_updates_enabled(): bool
+{
+    return dataset_update_token() !== null;
+}
+
+/**
+ * Provide default form values, optionally seeded from a jurisdiction record.
+ *
+ * @param array<string, mixed>|null $jurisdiction
+ * @return array<string, string>
+ */
+function default_form_values(?array $jurisdiction = null): array
+{
+    return [
+        'country' => (string) ($jurisdiction['country'] ?? ''),
+        'original_country' => (string) ($jurisdiction['country'] ?? ''),
+        'region' => (string) ($jurisdiction['region'] ?? ''),
+        'corporate_tax_rate' => isset($jurisdiction['corporate_tax_rate']) ? (string) $jurisdiction['corporate_tax_rate'] : '',
+        'operating_cost_index' => isset($jurisdiction['operating_cost_index']) ? (string) $jurisdiction['operating_cost_index'] : '',
+        'employer_social_security_rate' => isset($jurisdiction['employer_social_security_rate']) ? (string) $jurisdiction['employer_social_security_rate'] : '',
+        'incorporation_fees_usd' => isset($jurisdiction['incorporation_fees_usd']) ? (string) $jurisdiction['incorporation_fees_usd'] : '',
+        'annual_filing_cost_usd' => isset($jurisdiction['annual_filing_cost_usd']) ? (string) $jurisdiction['annual_filing_cost_usd'] : '',
+        'treaty_network_strength' => (string) ($jurisdiction['treaty_network_strength'] ?? ''),
+        'compliance_burden' => (string) ($jurisdiction['compliance_burden'] ?? ''),
+        'reputation_risk' => (string) ($jurisdiction['reputation_risk'] ?? ''),
+        'incentives' => implode("\n", $jurisdiction['incentives'] ?? []),
+        'notes' => implode("\n", $jurisdiction['notes'] ?? []),
+        'foundation_availability' => (string) ($jurisdiction['foundation_terms']['availability'] ?? ''),
+        'foundation_control' => (string) ($jurisdiction['foundation_terms']['control_requirements'] ?? ''),
+        'foundation_reporting' => (string) ($jurisdiction['foundation_terms']['reporting'] ?? ''),
+        'foundation_substance' => (string) ($jurisdiction['foundation_terms']['substance_requirements'] ?? ''),
+        'foundation_friendly_score' => isset($jurisdiction['foundation_terms']['friendly_score']) ? (string) $jurisdiction['foundation_terms']['friendly_score'] : '',
+        'foundation_notes' => implode("\n", $jurisdiction['foundation_terms']['notes'] ?? []),
+        'token' => '',
+    ];
+}
+
+/**
+ * Convert a newline-delimited textarea value into a trimmed array.
+ *
+ * @return array<int, string>
+ */
+function parse_multiline_field(?string $value): array
+{
+    if ($value === null || $value === '') {
+        return [];
+    }
+
+    $lines = preg_split('/\r\n|\r|\n/', $value) ?: [];
+
+    return array_values(array_filter(array_map(static function (string $line): string {
+        return trim($line);
+    }, $lines), static function (string $line): bool {
+        return $line !== '';
+    }));
+}
+
+/**
+ * Encode the jurisdiction dataset using two-space indentation.
+ */
+function encode_jurisdictions(array $jurisdictions): ?string
+{
+    $json = json_encode($jurisdictions, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION);
+    if ($json === false) {
+        return null;
+    }
+
+    $json = preg_replace_callback('/^( +)/m', static function (array $matches): string {
+        $spaces = strlen($matches[1]);
+        $level = (int) ($spaces / 4);
+
+        return str_repeat('  ', $level);
+    }, $json);
+
+    if ($json === null) {
+        return null;
+    }
+
+    return $json . "\n";
+}
+
+/**
+ * Persist the jurisdiction dataset back to disk.
+ *
+ * @param array<int, array<string, mixed>> $jurisdictions
+ */
+function save_jurisdictions(array $jurisdictions): bool
+{
+    $encoded = encode_jurisdictions($jurisdictions);
+    if ($encoded === null) {
+        return false;
+    }
+
+    return file_put_contents(DATA_PATH, $encoded) !== false;
+}
+
+/**
+ * Validate and handle dataset submissions from the management form.
+ *
+ * @param array<string, mixed> $post
+ * @param array<int, array<string, mixed>> $jurisdictions
+ * @return array{status: string, message: string, values: array<string, string>, jurisdictions: array<int, array<string, mixed>>, country: string|null}
+ */
+function handle_dataset_submission(array $post, array $jurisdictions): array
+{
+    $values = default_form_values();
+
+    $values['country'] = trim((string) ($post['country'] ?? ''));
+    $values['original_country'] = trim((string) ($post['original_country'] ?? $values['country']));
+    $values['region'] = trim((string) ($post['region'] ?? ''));
+    $values['corporate_tax_rate'] = trim((string) ($post['corporate_tax_rate'] ?? ''));
+    $values['operating_cost_index'] = trim((string) ($post['operating_cost_index'] ?? ''));
+    $values['employer_social_security_rate'] = trim((string) ($post['employer_social_security_rate'] ?? ''));
+    $values['incorporation_fees_usd'] = trim((string) ($post['incorporation_fees_usd'] ?? ''));
+    $values['annual_filing_cost_usd'] = trim((string) ($post['annual_filing_cost_usd'] ?? ''));
+    $values['treaty_network_strength'] = trim((string) ($post['treaty_network_strength'] ?? ''));
+    $values['compliance_burden'] = trim((string) ($post['compliance_burden'] ?? ''));
+    $values['reputation_risk'] = trim((string) ($post['reputation_risk'] ?? ''));
+    $values['incentives'] = (string) ($post['incentives'] ?? '');
+    $values['notes'] = (string) ($post['notes'] ?? '');
+    $values['foundation_availability'] = trim((string) ($post['foundation_availability'] ?? ''));
+    $values['foundation_control'] = trim((string) ($post['foundation_control'] ?? ''));
+    $values['foundation_reporting'] = trim((string) ($post['foundation_reporting'] ?? ''));
+    $values['foundation_substance'] = trim((string) ($post['foundation_substance'] ?? ''));
+    $values['foundation_friendly_score'] = trim((string) ($post['foundation_friendly_score'] ?? ''));
+    $values['foundation_notes'] = (string) ($post['foundation_notes'] ?? '');
+    $values['token'] = '';
+
+    $expectedToken = dataset_update_token();
+    if ($expectedToken === null) {
+        return [
+            'status' => 'error',
+            'message' => 'Dataset updates are disabled. Configure DATASET_UPDATE_TOKEN on the server to enable saving.',
+            'values' => $values,
+            'jurisdictions' => $jurisdictions,
+            'country' => null,
+        ];
+    }
+
+    $providedToken = trim((string) ($post['token'] ?? ''));
+    if ($providedToken === '') {
+        return [
+            'status' => 'error',
+            'message' => 'Enter the dataset update token to save changes.',
+            'values' => $values,
+            'jurisdictions' => $jurisdictions,
+            'country' => null,
+        ];
+    }
+
+    if (!hash_equals($expectedToken, $providedToken)) {
+        return [
+            'status' => 'error',
+            'message' => 'The provided dataset update token is not valid.',
+            'values' => $values,
+            'jurisdictions' => $jurisdictions,
+            'country' => null,
+        ];
+    }
+
+    if ($values['country'] === '' || $values['region'] === '') {
+        return [
+            'status' => 'error',
+            'message' => 'Country and region are required to save a jurisdiction.',
+            'values' => $values,
+            'jurisdictions' => $jurisdictions,
+            'country' => null,
+        ];
+    }
+
+    $numericFields = [
+        'corporate_tax_rate' => ['min' => 0.0],
+        'operating_cost_index' => ['min' => 0.0],
+        'employer_social_security_rate' => ['min' => 0.0],
+        'incorporation_fees_usd' => ['min' => 0.0],
+        'annual_filing_cost_usd' => ['min' => 0.0],
+    ];
+
+    $numericValues = [];
+    foreach ($numericFields as $field => $rules) {
+        $raw = $values[$field];
+        if ($raw === '' || !is_numeric($raw)) {
+            return [
+                'status' => 'error',
+                'message' => 'Provide numeric values for tax, cost, and fee fields.',
+                'values' => $values,
+                'jurisdictions' => $jurisdictions,
+                'country' => null,
+            ];
+        }
+
+        $numeric = (float) $raw;
+        if (isset($rules['min']) && $numeric < $rules['min']) {
+            return [
+                'status' => 'error',
+                'message' => 'Numeric fields must be greater than or equal to zero.',
+                'values' => $values,
+                'jurisdictions' => $jurisdictions,
+                'country' => null,
+            ];
+        }
+
+        $numericValues[$field] = $numeric;
+    }
+
+    $friendlyScoreRaw = $values['foundation_friendly_score'];
+    if ($friendlyScoreRaw === '' || !is_numeric($friendlyScoreRaw)) {
+        return [
+            'status' => 'error',
+            'message' => 'Provide a foundation friendliness score between 0 and 5.',
+            'values' => $values,
+            'jurisdictions' => $jurisdictions,
+            'country' => null,
+        ];
+    }
+
+    $friendlyScore = (int) round((float) $friendlyScoreRaw);
+    $friendlyScore = max(0, min(5, $friendlyScore));
+
+    $entry = [
+        'country' => $values['country'],
+        'region' => $values['region'],
+        'corporate_tax_rate' => $numericValues['corporate_tax_rate'],
+        'operating_cost_index' => $numericValues['operating_cost_index'],
+        'employer_social_security_rate' => $numericValues['employer_social_security_rate'],
+        'incorporation_fees_usd' => $numericValues['incorporation_fees_usd'],
+        'annual_filing_cost_usd' => $numericValues['annual_filing_cost_usd'],
+        'treaty_network_strength' => $values['treaty_network_strength'],
+        'compliance_burden' => $values['compliance_burden'],
+        'reputation_risk' => $values['reputation_risk'],
+        'incentives' => parse_multiline_field($values['incentives']),
+        'notes' => parse_multiline_field($values['notes']),
+        'foundation_terms' => [
+            'availability' => $values['foundation_availability'],
+            'control_requirements' => $values['foundation_control'],
+            'reporting' => $values['foundation_reporting'],
+            'substance_requirements' => $values['foundation_substance'],
+            'notes' => parse_multiline_field($values['foundation_notes']),
+            'friendly_score' => $friendlyScore,
+        ],
+    ];
+
+    $found = false;
+    $original = $values['original_country'];
+    foreach ($jurisdictions as $index => $existing) {
+        if ($original !== '' && strcasecmp((string) $existing['country'], $original) === 0) {
+            $jurisdictions[$index] = $entry;
+            $found = true;
+            break;
+        }
+        if (strcasecmp((string) $existing['country'], $entry['country']) === 0) {
+            $jurisdictions[$index] = $entry;
+            $found = true;
+            break;
+        }
+    }
+
+    if (!$found) {
+        $jurisdictions[] = $entry;
+    }
+
+    usort($jurisdictions, static fn (array $a, array $b): int => strcasecmp((string) $a['country'], (string) $b['country']));
+
+    if (!save_jurisdictions($jurisdictions)) {
+        return [
+            'status' => 'error',
+            'message' => 'Failed to write data/jurisdictions.json. Check file permissions and try again.',
+            'values' => $values,
+            'jurisdictions' => $jurisdictions,
+            'country' => null,
+        ];
+    }
+
+    $values = default_form_values($entry);
+    $values['token'] = '';
+
+    return [
+        'status' => 'success',
+        'message' => 'Jurisdiction saved successfully. data/jurisdictions.json has been updated.',
+        'values' => $values,
+        'jurisdictions' => $jurisdictions,
+        'country' => $entry['country'],
+    ];
+}
+
+/**
  * HTML escape helper.
  */
 function e(string $value): string
@@ -211,6 +512,49 @@ function render_stars(int $score): string
 
 $jurisdictions = load_jurisdictions();
 $bundle_available = file_exists(BUNDLE_PATH);
+$updates_enabled = dataset_updates_enabled();
+
+$status_type = null;
+$status_message = null;
+$form_values = default_form_values();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $submission = handle_dataset_submission($_POST, $jurisdictions);
+    $status_type = $submission['status'];
+    $status_message = $submission['message'];
+    $form_values = $submission['values'];
+    $jurisdictions = $submission['jurisdictions'];
+
+    if ($status_type === 'success') {
+        $query = $_GET;
+        $query['status'] = 'saved';
+        if (!empty($submission['country'])) {
+            $query['country'] = $submission['country'];
+        }
+
+        header('Location: index.php?' . http_build_query($query) . '#manage');
+        exit;
+    }
+}
+
+$selected_country = isset($_GET['country']) ? trim((string) $_GET['country']) : '';
+if ($selected_country !== '' && $_SERVER['REQUEST_METHOD'] !== 'POST') {
+    foreach ($jurisdictions as $item) {
+        if (strcasecmp((string) $item['country'], $selected_country) === 0) {
+            $form_values = default_form_values($item);
+            break;
+        }
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $status_type !== 'success') {
+    $selected_country = $form_values['original_country'] !== '' ? $form_values['original_country'] : $form_values['country'];
+}
+
+if ($status_type === null && isset($_GET['status']) && $_GET['status'] === 'saved') {
+    $status_type = 'success';
+    $status_message = 'Jurisdiction saved. data/jurisdictions.json is up to date.';
+}
 
 $region_options = array_values(array_unique(array_map(fn ($item) => (string) $item['region'], $jurisdictions)));
 sort($region_options);
@@ -290,9 +634,13 @@ try {
                 <?php else: ?>
                     <a class="btn primary" href="codextest.zip" aria-disabled="true" tabindex="-1">Download ready-to-run bundle</a>
                 <?php endif; ?>
+                <a class="btn secondary" href="#manage" data-focus-target="manage" <?php echo $updates_enabled ? '' : 'aria-disabled="true"'; ?>>Manage dataset</a>
             </div>
             <?php if (!$bundle_available): ?>
                 <p class="header-helper">Need the portable archive? Generate it from this directory with <code>zip -r codextest.zip assets data index.php README.md scripts .gitignore</code> and reload the page to enable direct downloads.</p>
+            <?php endif; ?>
+            <?php if (!$updates_enabled): ?>
+                <p class="header-helper">To unlock in-app edits, set <code>DATASET_UPDATE_TOKEN</code> in your server environment. The form stays read-only until a matching token is provided.</p>
             <?php endif; ?>
             <div class="hero-grid">
                 <?php if ($hero_stats['lowest_tax'] !== null): ?>
@@ -540,6 +888,131 @@ try {
                         <?php endif; ?>
                     </article>
                 <?php endif; ?>
+            </div>
+        </section>
+
+        <section class="section alt" id="manage">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Manage dataset</h2>
+                    <p>Refresh the flat-file dataset directly in the browser. Provide the configured token to save updates securely.</p>
+                </div>
+                <?php if ($status_message !== null): ?>
+                    <div class="status-banner status-<?php echo $status_type === 'success' ? 'success' : 'error'; ?>"><?php echo e($status_message); ?></div>
+                <?php endif; ?>
+                <?php if (!$updates_enabled): ?>
+                    <div class="status-banner status-warning">Dataset edits are disabled until <code>DATASET_UPDATE_TOKEN</code> is set on the server.</div>
+                <?php endif; ?>
+                <form class="manage-selector" method="get">
+                    <label>
+                        <span>Load existing jurisdiction</span>
+                        <select name="country">
+                            <option value="">Add new jurisdiction</option>
+                            <?php foreach ($jurisdictions as $item): ?>
+                                <?php $is_selected = ($selected_country !== '' && strcasecmp($selected_country, (string) $item['country']) === 0); ?>
+                                <option value="<?php echo e($item['country']); ?>" <?php echo $is_selected ? 'selected' : ''; ?>><?php echo e($item['country']); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </label>
+                    <button type="submit" class="btn secondary">Load</button>
+                </form>
+                <form class="manage-form" id="manage-form" method="post" <?php echo $updates_enabled ? '' : 'aria-disabled="true"'; ?>>
+                    <input type="hidden" name="original_country" value="<?php echo e($form_values['original_country']); ?>">
+                    <div class="manage-columns">
+                        <div class="manage-group">
+                            <h3>Jurisdiction snapshot</h3>
+                            <label>
+                                <span>Country</span>
+                                <input type="text" name="country" value="<?php echo e($form_values['country']); ?>" required<?php echo $updates_enabled ? '' : ' disabled'; ?>>
+                            </label>
+                            <label>
+                                <span>Region</span>
+                                <input type="text" name="region" value="<?php echo e($form_values['region']); ?>" required<?php echo $updates_enabled ? '' : ' disabled'; ?>>
+                            </label>
+                            <label>
+                                <span>Corporate tax rate (%)</span>
+                                <input type="number" name="corporate_tax_rate" step="0.1" min="0" value="<?php echo e($form_values['corporate_tax_rate']); ?>" required<?php echo $updates_enabled ? '' : ' disabled'; ?>>
+                            </label>
+                            <label>
+                                <span>Operating cost index</span>
+                                <input type="number" name="operating_cost_index" step="1" min="0" value="<?php echo e($form_values['operating_cost_index']); ?>" required<?php echo $updates_enabled ? '' : ' disabled'; ?>>
+                            </label>
+                            <label>
+                                <span>Employer social security (%)</span>
+                                <input type="number" name="employer_social_security_rate" step="0.1" min="0" value="<?php echo e($form_values['employer_social_security_rate']); ?>" required<?php echo $updates_enabled ? '' : ' disabled'; ?>>
+                            </label>
+                            <label>
+                                <span>Incorporation fees (USD)</span>
+                                <input type="number" name="incorporation_fees_usd" step="100" min="0" value="<?php echo e($form_values['incorporation_fees_usd']); ?>" required<?php echo $updates_enabled ? '' : ' disabled'; ?>>
+                            </label>
+                            <label>
+                                <span>Annual filing cost (USD)</span>
+                                <input type="number" name="annual_filing_cost_usd" step="100" min="0" value="<?php echo e($form_values['annual_filing_cost_usd']); ?>" required<?php echo $updates_enabled ? '' : ' disabled'; ?>>
+                            </label>
+                            <label>
+                                <span>Treaty network strength</span>
+                                <textarea name="treaty_network_strength" rows="3"<?php echo $updates_enabled ? '' : ' disabled'; ?>><?php echo e($form_values['treaty_network_strength']); ?></textarea>
+                            </label>
+                            <label>
+                                <span>Compliance burden</span>
+                                <input type="text" name="compliance_burden" value="<?php echo e($form_values['compliance_burden']); ?>"<?php echo $updates_enabled ? '' : ' disabled'; ?>>
+                            </label>
+                            <label>
+                                <span>Reputation risk</span>
+                                <input type="text" name="reputation_risk" value="<?php echo e($form_values['reputation_risk']); ?>"<?php echo $updates_enabled ? '' : ' disabled'; ?>>
+                            </label>
+                        </div>
+                        <div class="manage-group">
+                            <h3>Foundation terms</h3>
+                            <label>
+                                <span>Availability</span>
+                                <textarea name="foundation_availability" rows="3"<?php echo $updates_enabled ? '' : ' disabled'; ?>><?php echo e($form_values['foundation_availability']); ?></textarea>
+                            </label>
+                            <label>
+                                <span>Control requirements</span>
+                                <textarea name="foundation_control" rows="3"<?php echo $updates_enabled ? '' : ' disabled'; ?>><?php echo e($form_values['foundation_control']); ?></textarea>
+                            </label>
+                            <label>
+                                <span>Reporting</span>
+                                <textarea name="foundation_reporting" rows="3"<?php echo $updates_enabled ? '' : ' disabled'; ?>><?php echo e($form_values['foundation_reporting']); ?></textarea>
+                            </label>
+                            <label>
+                                <span>Substance requirements</span>
+                                <textarea name="foundation_substance" rows="3"<?php echo $updates_enabled ? '' : ' disabled'; ?>><?php echo e($form_values['foundation_substance']); ?></textarea>
+                            </label>
+                            <label>
+                                <span>Friendly score (0–5)</span>
+                                <input type="number" name="foundation_friendly_score" min="0" max="5" step="1" value="<?php echo e($form_values['foundation_friendly_score']); ?>" required<?php echo $updates_enabled ? '' : ' disabled'; ?>>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="manage-group manage-notes">
+                        <h3>Incentives &amp; notes</h3>
+                        <label>
+                            <span>Incentives (one per line)</span>
+                            <textarea name="incentives" rows="4"<?php echo $updates_enabled ? '' : ' disabled'; ?>><?php echo e($form_values['incentives']); ?></textarea>
+                        </label>
+                        <label>
+                            <span>Operating notes (one per line)</span>
+                            <textarea name="notes" rows="4"<?php echo $updates_enabled ? '' : ' disabled'; ?>><?php echo e($form_values['notes']); ?></textarea>
+                        </label>
+                        <label>
+                            <span>Foundation notes (one per line)</span>
+                            <textarea name="foundation_notes" rows="4"<?php echo $updates_enabled ? '' : ' disabled'; ?>><?php echo e($form_values['foundation_notes']); ?></textarea>
+                        </label>
+                    </div>
+                    <div class="manage-group manage-security">
+                        <h3>Authentication</h3>
+                        <label>
+                            <span>Dataset update token</span>
+                            <input type="password" name="token" autocomplete="off" placeholder="Enter DATASET_UPDATE_TOKEN"<?php echo $updates_enabled ? '' : ' disabled'; ?>>
+                        </label>
+                        <p class="manage-helper">Provide the token each time you save. It is verified server-side and never stored in the dataset.</p>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary"<?php echo $updates_enabled ? '' : ' disabled'; ?>>Save changes</button>
+                    </div>
+                </form>
             </div>
         </section>
 

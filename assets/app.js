@@ -1,4 +1,53 @@
 window.addEventListener('DOMContentLoaded', () => {
+    const manageSection = document.getElementById('manage');
+    const manageForm = document.getElementById('manage-form');
+    const manageTrigger = document.querySelector('[data-focus-target="manage"]');
+    const manageSelector = document.querySelector('.manage-selector');
+    const params = new URLSearchParams(window.location.search);
+
+    const ensureHash = () => {
+        if (window.location.hash !== '#manage') {
+            const url = new URL(window.location.href);
+            url.hash = 'manage';
+            history.replaceState(null, '', url);
+        }
+    };
+
+    const focusManageForm = () => {
+        if (!manageForm) {
+            return;
+        }
+
+        const field = manageForm.querySelector('input:not([type="hidden"]):not(:disabled), textarea:not(:disabled), select:not(:disabled)');
+        if (field) {
+            field.focus();
+        }
+    };
+
+    if (manageTrigger && manageForm) {
+        manageTrigger.addEventListener('click', () => {
+            window.requestAnimationFrame(() => {
+                ensureHash();
+                focusManageForm();
+            });
+        });
+    }
+
+    if (manageSelector) {
+        manageSelector.addEventListener('submit', () => {
+            ensureHash();
+        });
+    }
+
+    if (manageSection && manageForm) {
+        if (window.location.hash === '#manage' || params.has('status') || params.has('country')) {
+            window.requestAnimationFrame(() => {
+                ensureHash();
+                focusManageForm();
+            });
+        }
+    }
+
     const canvas = document.getElementById('taxChart');
     const wrapper = canvas ? canvas.closest('.chart-wrapper') : null;
 
@@ -107,7 +156,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent') || '#38bdf8';
     const accentStrong = getComputedStyle(document.documentElement).getPropertyValue('--accent-strong') || '#0ea5e9';
 
-    const chart = new Chart(canvas, {
+    new Chart(canvas, {
         type: 'bar',
         data: {
             labels,
@@ -222,6 +271,4 @@ window.addEventListener('DOMContentLoaded', () => {
             },
         },
     });
-
-    return chart;
 });

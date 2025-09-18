@@ -26,13 +26,9 @@ PHP-capable server without databases or background services.
 - **Worldwide coverage** – 225 jurisdictions are preloaded using the Tax
   Foundation worldwide corporate tax rate dataset, enriched with operating cost
   and foundation heuristics for every entry.
-- **Flat-file updates** – Refresh the dataset by editing the JSON directly or
-  regenerating it with the bundled PHP script; no control panel or database
-  required.
-
-> **Why no in-app editing?** To keep production deployments safe, the browser
-> management form has been removed. Update `data/jurisdictions.json` directly or
-> rerun the PHP rebuild script whenever you need to publish changes.
+- **Token-protected updates** – Refresh the dataset with the in-app management
+  form (secured by an environment token) or by editing the JSON directly; no
+  database required.
 
 ## Quick start
 
@@ -50,6 +46,24 @@ PHP-capable server without databases or background services.
 3. Visit [http://localhost/](http://localhost/) in your browser. The
    dashboard automatically scales from phones to large desktop displays and
    surfaces a header action for bundle downloads when the archive is present.
+
+## Secure in-browser edits
+
+The **Manage dataset** section stays read-only until a dataset token is present.
+To enable safe in-browser updates:
+
+1. Set a secret token on the server, for example:
+
+   ```bash
+   export DATASET_UPDATE_TOKEN="your-long-random-token"
+   ```
+
+2. Reload the dashboard. The **Manage dataset** button becomes active.
+3. Load an existing jurisdiction or start a new entry, adjust the details, and
+   supply the same token before saving. The form writes directly to
+   `data/jurisdictions.json` with the project’s two-space indentation.
+4. When the token is missing or incorrect, the dashboard shows guidance and
+   refuses to persist changes, keeping deployments safe from unsolicited posts.
 
 ## Download the ready-to-run bundle
 
@@ -102,6 +116,9 @@ to cover every jurisdiction globally.
 
 ## Maintaining the dataset
 
+- **In-app management (token required):** Visit **Manage dataset**, pick an
+  existing jurisdiction (or add a new one), and save changes after entering the
+  server-side token. The JSON file updates instantly.
 - **Manual edits:** Update [`data/jurisdictions.json`](data/jurisdictions.json)
   with your preferred editor. The dashboard reads straight from the file, so
   reloading the page immediately reflects your changes.
