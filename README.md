@@ -30,6 +30,10 @@ PHP-capable server without databases or background services.
   regenerating it with the bundled PHP script; no control panel or database
   required.
 
+> **Why no in-app editing?** To keep production deployments safe, the browser
+> management form has been removed. Update `data/jurisdictions.json` directly or
+> rerun the PHP rebuild script whenever you need to publish changes.
+
 ## Quick start
 
 1. Ensure you have PHP 8.1+ installed locally or on your server.
