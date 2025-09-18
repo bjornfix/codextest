@@ -1,0 +1,716 @@
+[
+  {
+    "country": "American Samoa",
+    "region": "Oceania",
+    "corporate_tax_rate": 34.0,
+    "operating_cost_index": 70,
+    "employer_social_security_rate": 11.41,
+    "incorporation_fees_usd": 530,
+    "annual_filing_cost_usd": 830,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "High",
+    "reputation_risk": "Very Low",
+    "incentives": [
+      "Headline corporate income tax of 34.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $530 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 11.4% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $830 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Primarily restricted to charitable purposes with limited ability to own active businesses.",
+      "control_requirements": "Regulator approval needed before foundations may influence corporate management.",
+      "reporting": "Detailed programme and financial reporting required, often with advance budgeting submissions.",
+      "substance_requirements": "Expect mandated local agents and closer supervision of cross-border transactions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 2
+    }
+  },
+  {
+    "country": "Australia",
+    "region": "Oceania",
+    "corporate_tax_rate": 30.0,
+    "operating_cost_index": 86,
+    "employer_social_security_rate": 11.74,
+    "incorporation_fees_usd": 730,
+    "annual_filing_cost_usd": 1370,
+    "treaty_network_strength": "OECD-aligned treaty policy covering most major economies and investment partners.",
+    "compliance_burden": "High",
+    "reputation_risk": "Very Low",
+    "incentives": [
+      "Headline corporate income tax of 30.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $730 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 11.7% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $1,370 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Primarily restricted to charitable purposes with limited ability to own active businesses.",
+      "control_requirements": "Regulator approval needed before foundations may influence corporate management.",
+      "reporting": "Detailed programme and financial reporting required, often with advance budgeting submissions.",
+      "substance_requirements": "Expect mandated local agents and closer supervision of cross-border transactions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 2
+    }
+  },
+  {
+    "country": "Cook Islands",
+    "region": "Oceania",
+    "corporate_tax_rate": 20.0,
+    "operating_cost_index": 67,
+    "employer_social_security_rate": 9.6,
+    "incorporation_fees_usd": 500,
+    "annual_filing_cost_usd": 760,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "Moderate",
+    "reputation_risk": "Low",
+    "incentives": [
+      "Headline corporate income tax of 20.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $500 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 9.6% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $760 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Permitted for philanthropic and holding activities; commercial control reviewed on a case-by-case basis.",
+      "control_requirements": "At least one locally qualified fiduciary or administrator must supervise decision making.",
+      "reporting": "Yearly activity reports and financial summaries lodged with the foundation supervisor.",
+      "substance_requirements": "Maintain registered office services and retain evidentiary support for strategic management decisions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 3
+    }
+  },
+  {
+    "country": "Fiji",
+    "region": "Oceania",
+    "corporate_tax_rate": 20.0,
+    "operating_cost_index": 55,
+    "employer_social_security_rate": 9.0,
+    "incorporation_fees_usd": 360,
+    "annual_filing_cost_usd": 340,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "Low",
+    "reputation_risk": "Low",
+    "incentives": [
+      "Headline corporate income tax of 20.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $360 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 9.0% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $340 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Permitted for philanthropic and holding activities; commercial control reviewed on a case-by-case basis.",
+      "control_requirements": "At least one locally qualified fiduciary or administrator must supervise decision making.",
+      "reporting": "Yearly activity reports and financial summaries lodged with the foundation supervisor.",
+      "substance_requirements": "Maintain registered office services and retain evidentiary support for strategic management decisions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 3
+    }
+  },
+  {
+    "country": "French Polynesia",
+    "region": "Oceania",
+    "corporate_tax_rate": 25.0,
+    "operating_cost_index": 68,
+    "employer_social_security_rate": 10.25,
+    "incorporation_fees_usd": 510,
+    "annual_filing_cost_usd": 790,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "Moderate",
+    "reputation_risk": "Low",
+    "incentives": [
+      "Headline corporate income tax of 25.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $510 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 10.2% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $790 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Permitted for philanthropic and holding activities; commercial control reviewed on a case-by-case basis.",
+      "control_requirements": "At least one locally qualified fiduciary or administrator must supervise decision making.",
+      "reporting": "Yearly activity reports and financial summaries lodged with the foundation supervisor.",
+      "substance_requirements": "Maintain registered office services and retain evidentiary support for strategic management decisions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 3
+    }
+  },
+  {
+    "country": "Guam",
+    "region": "Oceania",
+    "corporate_tax_rate": 21.0,
+    "operating_cost_index": 67,
+    "employer_social_security_rate": 9.73,
+    "incorporation_fees_usd": 510,
+    "annual_filing_cost_usd": 770,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "Moderate",
+    "reputation_risk": "Low",
+    "incentives": [
+      "Headline corporate income tax of 21.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $510 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 9.7% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $770 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Permitted for philanthropic and holding activities; commercial control reviewed on a case-by-case basis.",
+      "control_requirements": "At least one locally qualified fiduciary or administrator must supervise decision making.",
+      "reporting": "Yearly activity reports and financial summaries lodged with the foundation supervisor.",
+      "substance_requirements": "Maintain registered office services and retain evidentiary support for strategic management decisions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 3
+    }
+  },
+  {
+    "country": "Kiribati",
+    "region": "Oceania",
+    "corporate_tax_rate": 30.0,
+    "operating_cost_index": 69,
+    "employer_social_security_rate": 10.89,
+    "incorporation_fees_usd": 530,
+    "annual_filing_cost_usd": 810,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "High",
+    "reputation_risk": "Very Low",
+    "incentives": [
+      "Headline corporate income tax of 30.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $530 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 10.9% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $810 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Primarily restricted to charitable purposes with limited ability to own active businesses.",
+      "control_requirements": "Regulator approval needed before foundations may influence corporate management.",
+      "reporting": "Detailed programme and financial reporting required, often with advance budgeting submissions.",
+      "substance_requirements": "Expect mandated local agents and closer supervision of cross-border transactions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 2
+    }
+  },
+  {
+    "country": "Micronesia",
+    "region": "Oceania",
+    "corporate_tax_rate": 30.0,
+    "operating_cost_index": 69,
+    "employer_social_security_rate": 10.89,
+    "incorporation_fees_usd": 530,
+    "annual_filing_cost_usd": 810,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "High",
+    "reputation_risk": "Very Low",
+    "incentives": [
+      "Headline corporate income tax of 30.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $530 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 10.9% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $810 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Primarily restricted to charitable purposes with limited ability to own active businesses.",
+      "control_requirements": "Regulator approval needed before foundations may influence corporate management.",
+      "reporting": "Detailed programme and financial reporting required, often with advance budgeting submissions.",
+      "substance_requirements": "Expect mandated local agents and closer supervision of cross-border transactions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 2
+    }
+  },
+  {
+    "country": "Nauru",
+    "region": "Oceania",
+    "corporate_tax_rate": 25.0,
+    "operating_cost_index": 68,
+    "employer_social_security_rate": 10.25,
+    "incorporation_fees_usd": 510,
+    "annual_filing_cost_usd": 790,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "Moderate",
+    "reputation_risk": "Low",
+    "incentives": [
+      "Headline corporate income tax of 25.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $510 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 10.2% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $790 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Permitted for philanthropic and holding activities; commercial control reviewed on a case-by-case basis.",
+      "control_requirements": "At least one locally qualified fiduciary or administrator must supervise decision making.",
+      "reporting": "Yearly activity reports and financial summaries lodged with the foundation supervisor.",
+      "substance_requirements": "Maintain registered office services and retain evidentiary support for strategic management decisions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 3
+    }
+  },
+  {
+    "country": "New Caledonia",
+    "region": "Oceania",
+    "corporate_tax_rate": 30.0,
+    "operating_cost_index": 69,
+    "employer_social_security_rate": 10.89,
+    "incorporation_fees_usd": 530,
+    "annual_filing_cost_usd": 810,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "High",
+    "reputation_risk": "Very Low",
+    "incentives": [
+      "Headline corporate income tax of 30.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $530 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 10.9% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $810 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Primarily restricted to charitable purposes with limited ability to own active businesses.",
+      "control_requirements": "Regulator approval needed before foundations may influence corporate management.",
+      "reporting": "Detailed programme and financial reporting required, often with advance budgeting submissions.",
+      "substance_requirements": "Expect mandated local agents and closer supervision of cross-border transactions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 2
+    }
+  },
+  {
+    "country": "New Zealand",
+    "region": "Oceania",
+    "corporate_tax_rate": 28.0,
+    "operating_cost_index": 73,
+    "employer_social_security_rate": 10.87,
+    "incorporation_fees_usd": 580,
+    "annual_filing_cost_usd": 960,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "Moderate",
+    "reputation_risk": "Very Low",
+    "incentives": [
+      "Headline corporate income tax of 28.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $580 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 10.9% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $960 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Permitted for philanthropic and holding activities; commercial control reviewed on a case-by-case basis.",
+      "control_requirements": "At least one locally qualified fiduciary or administrator must supervise decision making.",
+      "reporting": "Yearly activity reports and financial summaries lodged with the foundation supervisor.",
+      "substance_requirements": "Maintain registered office services and retain evidentiary support for strategic management decisions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 3
+    }
+  },
+  {
+    "country": "Niue",
+    "region": "Oceania",
+    "corporate_tax_rate": 30.0,
+    "operating_cost_index": 69,
+    "employer_social_security_rate": 10.89,
+    "incorporation_fees_usd": 530,
+    "annual_filing_cost_usd": 810,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "High",
+    "reputation_risk": "Very Low",
+    "incentives": [
+      "Headline corporate income tax of 30.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $530 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 10.9% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $810 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Primarily restricted to charitable purposes with limited ability to own active businesses.",
+      "control_requirements": "Regulator approval needed before foundations may influence corporate management.",
+      "reporting": "Detailed programme and financial reporting required, often with advance budgeting submissions.",
+      "substance_requirements": "Expect mandated local agents and closer supervision of cross-border transactions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 2
+    }
+  },
+  {
+    "country": "Northern Mariana Islands",
+    "region": "Oceania",
+    "corporate_tax_rate": 21.0,
+    "operating_cost_index": 67,
+    "employer_social_security_rate": 9.73,
+    "incorporation_fees_usd": 510,
+    "annual_filing_cost_usd": 770,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "Moderate",
+    "reputation_risk": "Low",
+    "incentives": [
+      "Headline corporate income tax of 21.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $510 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 9.7% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $770 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Permitted for philanthropic and holding activities; commercial control reviewed on a case-by-case basis.",
+      "control_requirements": "At least one locally qualified fiduciary or administrator must supervise decision making.",
+      "reporting": "Yearly activity reports and financial summaries lodged with the foundation supervisor.",
+      "substance_requirements": "Maintain registered office services and retain evidentiary support for strategic management decisions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 3
+    }
+  },
+  {
+    "country": "Papua New Guinea",
+    "region": "Oceania",
+    "corporate_tax_rate": 30.0,
+    "operating_cost_index": 61,
+    "employer_social_security_rate": 10.49,
+    "incorporation_fees_usd": 430,
+    "annual_filing_cost_usd": 550,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "High",
+    "reputation_risk": "Very Low",
+    "incentives": [
+      "Headline corporate income tax of 30.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $430 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 10.5% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $550 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Primarily restricted to charitable purposes with limited ability to own active businesses.",
+      "control_requirements": "Regulator approval needed before foundations may influence corporate management.",
+      "reporting": "Detailed programme and financial reporting required, often with advance budgeting submissions.",
+      "substance_requirements": "Expect mandated local agents and closer supervision of cross-border transactions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 2
+    }
+  },
+  {
+    "country": "Samoa",
+    "region": "Oceania",
+    "corporate_tax_rate": 27.0,
+    "operating_cost_index": 56,
+    "employer_social_security_rate": 9.9,
+    "incorporation_fees_usd": 380,
+    "annual_filing_cost_usd": 370,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "Moderate",
+    "reputation_risk": "Low",
+    "incentives": [
+      "Headline corporate income tax of 27.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $380 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 9.9% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $370 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Permitted for philanthropic and holding activities; commercial control reviewed on a case-by-case basis.",
+      "control_requirements": "At least one locally qualified fiduciary or administrator must supervise decision making.",
+      "reporting": "Yearly activity reports and financial summaries lodged with the foundation supervisor.",
+      "substance_requirements": "Maintain registered office services and retain evidentiary support for strategic management decisions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 3
+    }
+  },
+  {
+    "country": "Solomon Islands",
+    "region": "Oceania",
+    "corporate_tax_rate": 30.0,
+    "operating_cost_index": 57,
+    "employer_social_security_rate": 10.29,
+    "incorporation_fees_usd": 380,
+    "annual_filing_cost_usd": 390,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "High",
+    "reputation_risk": "Very Low",
+    "incentives": [
+      "Headline corporate income tax of 30.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $380 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 10.3% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $390 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Primarily restricted to charitable purposes with limited ability to own active businesses.",
+      "control_requirements": "Regulator approval needed before foundations may influence corporate management.",
+      "reporting": "Detailed programme and financial reporting required, often with advance budgeting submissions.",
+      "substance_requirements": "Expect mandated local agents and closer supervision of cross-border transactions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 2
+    }
+  },
+  {
+    "country": "Timor-Leste",
+    "region": "Oceania",
+    "corporate_tax_rate": 10.0,
+    "operating_cost_index": 65,
+    "employer_social_security_rate": 8.31,
+    "incorporation_fees_usd": 660,
+    "annual_filing_cost_usd": 710,
+    "treaty_network_strength": "Targeted treaty coverage prioritising investment partners and transparency agreements.",
+    "compliance_burden": "Moderate",
+    "reputation_risk": "Moderate",
+    "incentives": [
+      "Headline corporate income tax of 10.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $660 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 8.3% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $710 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Widely available for private benefit foundations that can own operating subsidiaries subject to oversight.",
+      "control_requirements": "Requires a resident director or council member plus documented governance minutes.",
+      "reporting": "Annual financial statements and beneficial ownership registers filed via secure online portals.",
+      "substance_requirements": "Demonstrate mind-and-management through local service providers and periodic in-jurisdiction board meetings.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 4
+    }
+  },
+  {
+    "country": "Tokelau",
+    "region": "Oceania",
+    "corporate_tax_rate": 0.0,
+    "operating_cost_index": 63,
+    "employer_social_security_rate": 7.02,
+    "incorporation_fees_usd": 640,
+    "annual_filing_cost_usd": 660,
+    "treaty_network_strength": "Targeted treaty coverage prioritising investment partners and transparency agreements.",
+    "compliance_burden": "Moderate",
+    "reputation_risk": "High",
+    "incentives": [
+      "Headline corporate income tax of 0.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $640 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 7.0% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $660 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Widely available for private benefit foundations that can own operating subsidiaries subject to oversight.",
+      "control_requirements": "Requires a resident director or council member plus documented governance minutes.",
+      "reporting": "Annual financial statements and beneficial ownership registers filed via secure online portals.",
+      "substance_requirements": "Demonstrate mind-and-management through local service providers and periodic in-jurisdiction board meetings.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 4
+    }
+  },
+  {
+    "country": "Tonga",
+    "region": "Oceania",
+    "corporate_tax_rate": 25.0,
+    "operating_cost_index": 56,
+    "employer_social_security_rate": 9.64,
+    "incorporation_fees_usd": 370,
+    "annual_filing_cost_usd": 360,
+    "treaty_network_strength": "Developing treaty program anchored in regional double-tax agreements.",
+    "compliance_burden": "Moderate",
+    "reputation_risk": "Low",
+    "incentives": [
+      "Headline corporate income tax of 25.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $370 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 9.6% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $360 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Permitted for philanthropic and holding activities; commercial control reviewed on a case-by-case basis.",
+      "control_requirements": "At least one locally qualified fiduciary or administrator must supervise decision making.",
+      "reporting": "Yearly activity reports and financial summaries lodged with the foundation supervisor.",
+      "substance_requirements": "Maintain registered office services and retain evidentiary support for strategic management decisions.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 3
+    }
+  },
+  {
+    "country": "Vanuatu",
+    "region": "Oceania",
+    "corporate_tax_rate": 0.0,
+    "operating_cost_index": 51,
+    "employer_social_security_rate": 6.42,
+    "incorporation_fees_usd": 500,
+    "annual_filing_cost_usd": 240,
+    "treaty_network_strength": "Targeted treaty coverage prioritising investment partners and transparency agreements.",
+    "compliance_burden": "Low",
+    "reputation_risk": "High",
+    "incentives": [
+      "Headline corporate income tax of 0.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $500 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 6.4% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $240 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Widely available for private benefit foundations that can own operating subsidiaries subject to oversight.",
+      "control_requirements": "Requires a resident director or council member plus documented governance minutes.",
+      "reporting": "Annual financial statements and beneficial ownership registers filed via secure online portals.",
+      "substance_requirements": "Demonstrate mind-and-management through local service providers and periodic in-jurisdiction board meetings.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 4
+    }
+  },
+  {
+    "country": "Wallis and Futuna Islands",
+    "region": "Oceania",
+    "corporate_tax_rate": 0.0,
+    "operating_cost_index": 63,
+    "employer_social_security_rate": 7.02,
+    "incorporation_fees_usd": 640,
+    "annual_filing_cost_usd": 660,
+    "treaty_network_strength": "Targeted treaty coverage prioritising investment partners and transparency agreements.",
+    "compliance_burden": "Moderate",
+    "reputation_risk": "High",
+    "incentives": [
+      "Headline corporate income tax of 0.0% with tailored relief for reinvested profits and priority sectors.",
+      "Export development incentives include accelerated depreciation and refundable R&D offsets.",
+      "Digital incorporation pathways keep formation outlays near $640 including standard government charges."
+    ],
+    "notes": [
+      "Employers budget roughly 7.0% of payroll for social security and labour funds.",
+      "Annual compliance service packages average $660 covering accounting, filings, and statutory audits as required.",
+      "Regulators increasingly monitor economic substance and beneficial ownership disclosures for cross-border groups."
+    ],
+    "foundation_terms": {
+      "availability": "Widely available for private benefit foundations that can own operating subsidiaries subject to oversight.",
+      "control_requirements": "Requires a resident director or council member plus documented governance minutes.",
+      "reporting": "Annual financial statements and beneficial ownership registers filed via secure online portals.",
+      "substance_requirements": "Demonstrate mind-and-management through local service providers and periodic in-jurisdiction board meetings.",
+      "notes": [
+        "Regulators expect resident trustees and onshore board deliberations for active holdings.",
+        "Trans-Tasman transparency frameworks facilitate data sharing on charitable controllers.",
+        "Annual governance budgets of roughly $5,000 cover directors, accounting, and regulatory liaison fees."
+      ],
+      "friendly_score": 4
+    }
+  }
+]

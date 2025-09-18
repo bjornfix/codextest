@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+
+# Keep generated archives out of version control
+codextest.zip
+*.zip
+
+data/jurisdictions.json
