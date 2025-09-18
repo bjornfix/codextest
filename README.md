@@ -72,7 +72,10 @@ all sections on reload.
 
 The dashboard reads from the JSON files stored in
 [`data/jurisdictions/`](data/jurisdictions). Each region-specific file contains
-entries structured with the following fields:
+entries structured with the following fields. A combined
+[`data/jurisdictions.json`](data/jurisdictions.json) snapshot is updated
+automatically for backward compatibility with earlier tooling or downstream
+integrations that expect a single file dataset.
 Each record contains:
 
 | Field | Description |

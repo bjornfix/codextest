@@ -492,13 +492,21 @@ foreach ($existing as $path) {
     }
 }
 
-if (file_exists($legacyOutput)) {
-    @unlink($legacyOutput);
+$encodedAll = $encode($entries);
+if ($encodedAll === null) {
+    fwrite(STDERR, "Failed to encode combined dataset.\n");
+    exit(1);
+}
+
+if (file_put_contents($legacyOutput, $encodedAll) === false) {
+    fwrite(STDERR, "Failed to write combined dataset to {$legacyOutput}.\n");
+    exit(1);
 }
 
 printf(
-    "Wrote %d jurisdictions across %d region files in %s\n",
+    "Wrote %d jurisdictions across %d region files in %s and updated %s\n",
     count($entries),
     count($grouped),
-    $outputDir
+    $outputDir,
+    $legacyOutput
 );

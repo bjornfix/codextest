@@ -17,27 +17,47 @@ const DATA_DIRECTORY = __DIR__ . '/data/jurisdictions';
  */
 function load_jurisdictions(): array
 {
+    $records = [];
+
     if (!ensure_data_directory()) {
-        return [];
+        return $records;
     }
 
     $files = jurisdiction_file_paths();
-    $records = [];
 
-    foreach ($files as $path) {
-        $contents = file_get_contents($path);
-        if ($contents === false) {
-            continue;
+    if ($files !== []) {
+        foreach ($files as $path) {
+            $contents = file_get_contents($path);
+            if ($contents === false) {
+                continue;
+            }
+
+            $decoded = json_decode($contents, true);
+            if (!is_array($decoded)) {
+                continue;
+            }
+
+            foreach ($decoded as $entry) {
+                if (is_array($entry)) {
+                    $records[] = $entry;
+                }
+            }
         }
+    }
 
-        $decoded = json_decode($contents, true);
-        if (!is_array($decoded)) {
-            continue;
-        }
-
-        foreach ($decoded as $entry) {
-            if (is_array($entry)) {
-                $records[] = $entry;
+    if ($records === []) {
+        $legacyPath = __DIR__ . '/data/jurisdictions.json';
+        if (is_file($legacyPath)) {
+            $contents = file_get_contents($legacyPath);
+            if ($contents !== false) {
+                $decoded = json_decode($contents, true);
+                if (is_array($decoded)) {
+                    foreach ($decoded as $entry) {
+                        if (is_array($entry)) {
+                            $records[] = $entry;
+                        }
+                    }
+                }
             }
         }
     }
@@ -261,8 +281,13 @@ function save_jurisdictions(array $jurisdictions): bool
     }
 
     $legacyPath = __DIR__ . '/data/jurisdictions.json';
-    if (file_exists($legacyPath)) {
-        @unlink($legacyPath);
+    $encodedAll = encode_jurisdictions($jurisdictions);
+    if ($encodedAll === null) {
+        return false;
+    }
+
+    if (file_put_contents($legacyPath, $encodedAll) === false) {
+        return false;
     }
 
     return true;
