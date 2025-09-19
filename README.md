@@ -26,9 +26,9 @@ PHP-capable server without databases or background services.
 - **Worldwide coverage** – 225 jurisdictions are preloaded using the Tax
   Foundation worldwide corporate tax rate dataset, enriched with operating cost
   and foundation heuristics for every entry.
-- **Token-protected updates** – Refresh the dataset with the in-app management
-  form (secured by an environment token) or by editing the JSON directly; no
-  database required.
+- **Flat-file workflow** – Refresh insights by editing the JSON dataset or
+  rerunning the bundled PHP rebuild script; no databases or application
+  servers are required.
 
 ## Quick start
 
@@ -45,28 +45,6 @@ PHP-capable server without databases or background services.
 
 3. Visit [http://localhost/](http://localhost/) in your browser. The
    dashboard automatically scales from phones to large desktop displays.
-
-## Secure in-browser edits
-
-The **Manage dataset** section stays read-only until a dataset token is present.
-To enable safe in-browser updates:
-
-1. Set a secret token on the server, for example:
-
-   ```bash
-   export DATASET_UPDATE_TOKEN="your-long-random-token"
-   ```
-
-2. Reload the dashboard. The **Manage dataset** button becomes active.
-3. Load an existing jurisdiction or start a new entry, adjust the details, and
-   supply the same token before saving. The form writes directly to the region
-   JSON files under `data/jurisdictions/` using the project’s two-space
-   indentation.
-4. When the token is missing or incorrect, the dashboard shows guidance and
-   refuses to persist changes, keeping deployments safe from unsolicited posts.
-
-No additional build step is required. Updating the JSON data instantly refreshes
-all sections on reload.
 
 ## Data source
 
@@ -103,9 +81,6 @@ to cover every jurisdiction globally.
 
 ## Maintaining the dataset
 
-- **In-app management (token required):** Visit **Manage dataset**, pick an
-  existing jurisdiction (or add a new one), and save changes after entering the
-  server-side token. The JSON file updates instantly.
 - **Manual edits:** Update the relevant region file in
   [`data/jurisdictions/`](data/jurisdictions) with your preferred editor. The
   dashboard reads straight from these files, so reloading the page immediately
